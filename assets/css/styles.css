@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000 url('../images/background.jpg') fixed;
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.logo {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1550px;
+}

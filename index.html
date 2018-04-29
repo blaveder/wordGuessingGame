@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hangman...80's style!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <script src="assets/javascript/game.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <img src="assets/images/logo.png" class="logo" title="im retro yo" alt="retro title">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12 text-center">
+                <div id="winningImage"></div>
+            </div>
+            <div class="col-lg-6 col-cd-12 text-center">
+                <h1>Would you like to play a game?</h1>
+                <h3>Press any button to start game</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Wins</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Losses</h2>
+                    </div>
+                </div>
+                <div id="wordBox"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>number of guesses</h2>
+                        <span class="integerGuess">0</span>
+                    </div>
+                    <div class="col-md-12">
+                        <h2>Letters used:</h2>
+                        <span class="arrayGuessedLetters">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
