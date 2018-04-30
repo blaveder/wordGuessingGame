@@ -11,3 +11,33 @@ body {
     margin: 0 auto;
     max-width: 1550px;
 }
+#wordBox {
+    border: 1px solid pink;
+    padding: 2%;
+    text-align: center;
+    color: hotpink;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 3rem;
+    box-shadow: 0 0 10px hotpink;
+    margin-bottom: 2%;
+}
+.startBtn {
+    padding: 1%;
+background: transparent;
+color: white;
+text-transform: uppercase;
+border: 2px solid hotpink;
+cursor: pointer;
+margin: 2% auto;
+}
+.startBtn:hover {
+    padding: 1%;
+background: transparent;
+color: white;
+text-transform: uppercase;
+border: 2px solid #6b98d1;
+box-shadow: 0 0 10px #6b98d1;
+cursor: pointer;
+margin: 2% auto;
+}

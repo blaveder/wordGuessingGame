@@ -62,25 +62,30 @@ letters used is set to 0
 */
 // GLOBAL VARIABLES
 var words = ["Labyrinth","Pretty in Pink","Breakfast Club", "Top Gun"];
-var beginGame = confirm("do you want to play");
+wins = 0;
+losses = 0;
 var score = 0;
 var guesses = document.getElementById("mylives");
 var emptyMovie =[];
 
+
 // CODE TO STARTS GAME
-document.onkeyup = function() {
-    if (beginGame == true) {
+startGame = function() {
+    var beginGame = confirm("do you want to play");
+    if (beginGame === true) {
         emptyMovie =  words[Math.floor(Math.random()*words.length)];
         //checking my codes
         console.log(emptyMovie);
 
         //make blank lines for letters
+        var seperateLetters = [];
         for(var i=0; i < emptyMovie.length; i++) {
-            document.write("_ ");
+          seperateLetters[i] = "_"; 
+          document.getElementById("wordBox").innerHTML = seperateLetters.join(" ");
+            
         };
 
     } else {
         console.log("player doesn't wish to play");
     }
-    
 }
