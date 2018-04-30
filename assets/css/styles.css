@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 body {
     margin: 0;
     padding: 0;
@@ -5,6 +8,7 @@ body {
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;
+    overflow-y: scroll;
 }
 .logo {
     width: 100%;
@@ -18,10 +22,23 @@ body {
     color: hotpink;
     width: 80%;
     margin: 0 auto;
-    font-size: 3rem;
+    font-size: 2rem;
     box-shadow: 0 0 10px hotpink;
     margin-bottom: 2%;
+    font-family: 'Press Start 2P', cursive;
 }
+h1, h2, h3 {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+h1 {
+    
+    font-size: 1.2rem;
+}
+h2 {
+    font-size: 1rem;
+}
+
 .startBtn {
     padding: 1%;
 background: transparent;
@@ -40,4 +57,8 @@ border: 2px solid #6b98d1;
 box-shadow: 0 0 10px #6b98d1;
 cursor: pointer;
 margin: 2% auto;
+}
+#winNumber, #lossNumber {
+    color: white;
+    
 }

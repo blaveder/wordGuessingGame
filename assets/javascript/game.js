@@ -61,7 +61,7 @@ letters used is set to 0
 
 */
 // GLOBAL VARIABLES
-var words = ["Labyrinth","Pretty in Pink","Breakfast Club", "Top Gun"];
+var words = ["Labyrinth","Pretty in Pink","Breakfast Club", "Top Gun", "ET","Aliens"];
 wins = 0;
 losses = 0;
 var score = 0;
@@ -72,6 +72,8 @@ var emptyMovie =[];
 // CODE TO STARTS GAME
 startGame = function() {
     var beginGame = confirm("do you want to play");
+    document.getElementById("winNumber").innerHTML = wins;
+    document.getElementById("lossNumber").innerHTML = losses;
     if (beginGame === true) {
         emptyMovie =  words[Math.floor(Math.random()*words.length)];
         //checking my codes
@@ -82,9 +84,7 @@ startGame = function() {
         for(var i=0; i < emptyMovie.length; i++) {
           seperateLetters[i] = "_"; 
           document.getElementById("wordBox").innerHTML = seperateLetters.join(" ");
-            
         };
-
     } else {
         console.log("player doesn't wish to play");
     }
