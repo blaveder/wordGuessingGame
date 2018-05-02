@@ -61,12 +61,15 @@ letters used is set to 0
 
 */
 // GLOBAL VARIABLES
-var words = ["Labyrinth","Pretty in Pink","Breakfast Club", "Top Gun", "ET","Aliens"];
+var words = ["labyrinth","topgun", "et","aliens"];
 wins = 0;
 losses = 0;
 var score = 0;
-var guesses = document.getElementById("mylives");
+var guesses = 12;
+var lettersGuessed = [];
+var complete = false;
 var emptyMovie =[];
+var guess = [];
 
 
 // CODE TO STARTS GAME
@@ -74,7 +77,13 @@ startGame = function() {
     var beginGame = confirm("do you want to play");
     document.getElementById("winNumber").innerHTML = wins;
     document.getElementById("lossNumber").innerHTML = losses;
+    document.getElementById("mylives").innerHTML = guesses;
+    
+    // CAPTURE KEYSTROKES
+    
+
     if (beginGame === true) {
+       
         emptyMovie =  words[Math.floor(Math.random()*words.length)];
         //checking my codes
         console.log(emptyMovie);
@@ -82,10 +91,29 @@ startGame = function() {
         //make blank lines for letters
         var seperateLetters = [];
         for(var i=0; i < emptyMovie.length; i++) {
-          seperateLetters[i] = "_"; 
-          document.getElementById("wordBox").innerHTML = seperateLetters.join(" ");
+            seperateLetters[i] = "_";
+            
+          document.getElementById("wordBox").innerHTML = seperateLetters.join("");
         };
+        document.onkeyup = function(event) {
+            var letter = String.fromCharCode(event.keyCode).toLowerCase();
+            console.log(letter);
+
+            for(var j = 0; j < emptyMovie.length; j++) {
+                if(letter == emptyMovie[j]) {
+                    
+                    seperateLetters[j] = letter;
+                    document.getElementById("wordBox").innerHTML = seperateLetters.join("");
+                    console.log(seperateLetters);
+                } 
+            }
+        }
+        
+// // GUESSING LETTERS 
+
+// RESET GAME
     } else {
         console.log("player doesn't wish to play");
     }
 }
+ 

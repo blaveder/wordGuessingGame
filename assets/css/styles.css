@@ -20,11 +20,11 @@ body {
     padding: 2%;
     text-align: center;
     color: hotpink;
-    width: 80%;
-    margin: 0 auto;
-    font-size: 2rem;
+
+    margin: 4% auto;
+    font-size: 1.2rem;
     box-shadow: 0 0 10px hotpink;
-    margin-bottom: 2%;
+
     font-family: 'Press Start 2P', cursive;
 }
 h1, h2, h3 {
@@ -58,15 +58,27 @@ box-shadow: 0 0 10px #6b98d1;
 cursor: pointer;
 margin: 2% auto;
 }
-#winNumber, #lossNumber {
+#winNumber, #lossNumber, #mylives {
     color: white;
     
 }
+
 .guessingImage {
     vertical-align: middle;
     border-style: none;
     margin-top: -2%;
-    width: 80%;
+    width: 41%;
     max-width: 450px;
 }
+@media (min-width: 768px) {
+    .guessingImage {
+
+        width: 99%;
+
+    }
+    #wordBox {
+
+        font-size: 1.5rem;
+
+    }
 }

@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hangman...80's style!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
@@ -19,12 +19,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-md-12 text-center">
+            <div class="col-lg-2 col-md-2"></div>
+            <div class="col-lg-4 col-md-4 text-center">
                 <div id="winningImage">
                         <img src="assets/images/guess_image.png" class="guessingImage" title="80's movie" alt="retro title">
                 </div>
             </div>
-            <div class="col-lg-6 col-cd-12 text-center">
+        
+           
+            <div class="col-lg-4 col-md-4 text-center">
                 <h1>Would you like to play a game?</h1>
                 <button id="bgnBtn" class="startBtn" onclick="startGame()">Start Game</button>
               
@@ -40,8 +43,8 @@
                 <div id="wordBox"></div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>number of guesses</h2>
-                        <span id="integerGuess">0</span>
+                        <h2>number of guesses: <span id="mylives"></span></h2>
+                        
                     </div>
                     <div class="col-md-12">
                         <h2>Letters used:</h2>
@@ -49,7 +52,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="col-lg-2"></div>
+   
     </div>
 </body>
 </html>
