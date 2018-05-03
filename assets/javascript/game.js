@@ -61,7 +61,8 @@ letters used is set to 0
 
 */
 // GLOBAL VARIABLES
-var words = ["labyrinth","topgun", "et","aliens"];
+var words = ["labyrinth","top gun", "et","aliens"];
+var covers = ["labyrinth","https://images-na.ssl-images-amazon.com/images/I/81zuvZethFL._SX522_.jpg", "et","aliens"];
 wins = 0;
 losses = 0;
 var score = 0;
@@ -83,34 +84,45 @@ startGame = function() {
     
 
     if (beginGame === true) {
-       
-        emptyMovie =  words[Math.floor(Math.random()*words.length)];
+       var pickedNumber = Math.floor(Math.random()*words.length);
+        emptyMovie =  words[pickedNumber];
         //checking my codes
         console.log(emptyMovie);
 
         //make blank lines for letters
         var seperateLetters = [];
         for(var i=0; i < emptyMovie.length; i++) {
+          if(emptyMovie[i] !== " ") {
             seperateLetters[i] = "_";
-            
+        } else {
+            seperateLetters[i] = " ";
+        }
           document.getElementById("wordBox").innerHTML = seperateLetters.join("");
         };
         document.onkeyup = function(event) {
             var letter = String.fromCharCode(event.keyCode).toLowerCase();
-            console.log(letter);
+            
 
             for(var j = 0; j < emptyMovie.length; j++) {
                 if(letter == emptyMovie[j]) {
                     
                     seperateLetters[j] = letter;
-                    document.getElementById("wordBox").innerHTML = seperateLetters.join("");
-                    console.log(seperateLetters);
-                } 
+                    
+                    guess.push(letter);
+                    console.log(document.getElementById("wordBox").innerHTML); console.log(emptyMovie) 
+                }  
+                document.getElementById("wordBox").innerHTML = seperateLetters.join("");
+
+               if(document.getElementById("wordBox").innerHTML == emptyMovie) {
+
+                document.getElementById("changingImage").setAttribute("src", covers[pickedNumber]);
+                    alert("i win");
+               }
             }
         }
-        
+       
 // // GUESSING LETTERS 
-
+        
 // RESET GAME
     } else {
         console.log("player doesn't wish to play");
