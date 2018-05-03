@@ -62,7 +62,7 @@ letters used is set to 0
 */
 // GLOBAL VARIABLES
 var words = ["labyrinth","top gun", "et","aliens"];
-var covers = ["labyrinth","https://images-na.ssl-images-amazon.com/images/I/81zuvZethFL._SX522_.jpg", "et","aliens"];
+var covers = ["https://images-na.ssl-images-amazon.com/images/I/51PO32rbByL.jpg","https://images-na.ssl-images-amazon.com/images/I/81zuvZethFL._SX522_.jpg", "http://img.moviepostershop.com/et--the-extra-terrestrial-movie-poster-1982-1010196171.jpg","https://images-na.ssl-images-amazon.com/images/I/31dKO0hfksL.jpg"];
 wins = 0;
 losses = 0;
 var score = 0;
@@ -77,16 +77,17 @@ var guess = [];
 // CODE TO STARTS GAME
 startGame = function() {
     var beginGame = confirm("do you want to play");
-    document.getElementById("winNumber").innerHTML = wins;
+    document.getElementById("winNumber").innerHTML = score;
     document.getElementById("lossNumber").innerHTML = losses;
     document.getElementById("mylives").innerHTML = guesses;
     document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed;
+    
     // CAPTURE KEYSTROKES
     
 // made an if statement to check if the player click OK when asked to play
 // this has ALL my code.
     if (beginGame === true) {
-        
+       
         //here i tell it to take a random word from the words array (the movies)
         // it then puts it into a var called pickNumber
 
@@ -115,9 +116,11 @@ startGame = function() {
         // made user input lowercase.
         document.onkeyup = function(event) {
             var letter = String.fromCharCode(event.keyCode).toLowerCase();
-            //new code here
+            //takes the letters and pushes into guess letters...
             lettersGuessed.push(letter);
             document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed.join(" ");
+           
+            guesses = guesses - 1;
             //console.log(letter);
 
             for(var j = 0; j < emptyMovie.length; j++) {
@@ -139,7 +142,13 @@ startGame = function() {
 
                 document.getElementById("changingImage").setAttribute("src", covers[pickedNumber]);
                     alert("YOU WIN!. Word was "+ emptyMovie);
-               }
+                    lettersGuessed = [];
+                    score = score + 1;
+                    guesses = 12;
+                  
+
+                    
+               } 
             }
         }
         
