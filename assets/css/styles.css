@@ -58,11 +58,14 @@ box-shadow: 0 0 10px #6b98d1;
 cursor: pointer;
 margin: 2% auto;
 }
-#winNumber, #lossNumber, #mylives {
+#winNumber, #lossNumber, #mylives, #arrayGuessedLetters {
     color: white;
     
 }
-
+#arrayGuessedLetters {
+    font-size: 1.2rem;
+    color: hotpink;
+}
 .guessingImage {
     vertical-align: middle;
     border-style: none;

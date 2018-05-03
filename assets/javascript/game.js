@@ -73,23 +73,33 @@ var emptyMovie =[];
 var guess = [];
 
 
+
 // CODE TO STARTS GAME
 startGame = function() {
     var beginGame = confirm("do you want to play");
     document.getElementById("winNumber").innerHTML = wins;
     document.getElementById("lossNumber").innerHTML = losses;
     document.getElementById("mylives").innerHTML = guesses;
-    
+    document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed;
     // CAPTURE KEYSTROKES
     
-
+// made an if statement to check if the player click OK when asked to play
+// this has ALL my code.
     if (beginGame === true) {
+        
+        //here i tell it to take a random word from the words array (the movies)
+        // it then puts it into a var called pickNumber
+
        var pickedNumber = Math.floor(Math.random()*words.length);
         emptyMovie =  words[pickedNumber];
         //checking my codes
+        
         console.log(emptyMovie);
 
         //make blank lines for letters
+        // takes the movie and makes _ _ _ blanks so we can guess stuff
+        // made an IF statement to remove spaces between words
+        //
         var seperateLetters = [];
         for(var i=0; i < emptyMovie.length; i++) {
           if(emptyMovie[i] !== " ") {
@@ -97,30 +107,42 @@ startGame = function() {
         } else {
             seperateLetters[i] = " ";
         }
+       
+        //this puts the _ _ _ _ in a DIV i named "wordBox"
           document.getElementById("wordBox").innerHTML = seperateLetters.join("");
+          
         };
+        // made user input lowercase.
         document.onkeyup = function(event) {
             var letter = String.fromCharCode(event.keyCode).toLowerCase();
-            
+            //new code here
+            lettersGuessed.push(letter);
+            document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed.join(" ");
+            //console.log(letter);
 
             for(var j = 0; j < emptyMovie.length; j++) {
                 if(letter == emptyMovie[j]) {
                     
                     seperateLetters[j] = letter;
-                    
+                   
                     guess.push(letter);
-                    console.log(document.getElementById("wordBox").innerHTML); console.log(emptyMovie) 
+                 
+                    
+                    
+                    document.getElementById("mylives").innerHTML = guesses;
+                    
+                   // console.log(document.getElementById("wordBox").innerHTML); console.log(emptyMovie) 
                 }  
                 document.getElementById("wordBox").innerHTML = seperateLetters.join("");
-
-               if(document.getElementById("wordBox").innerHTML == emptyMovie) {
+                
+               if (document.getElementById("wordBox").innerHTML == emptyMovie) {
 
                 document.getElementById("changingImage").setAttribute("src", covers[pickedNumber]);
-                    alert("i win");
+                    alert("YOU WIN!. Word was "+ emptyMovie);
                }
             }
         }
-       
+        
 // // GUESSING LETTERS 
         
 // RESET GAME
