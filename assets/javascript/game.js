@@ -82,25 +82,15 @@ startGame = function() {
     document.getElementById("mylives").innerHTML = guesses;
     document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed;
     
-    // CAPTURE KEYSTROKES
-    
-// made an if statement to check if the player click OK when asked to play
-// this has ALL my code.
     if (beginGame === true) {
-       
-        //here i tell it to take a random word from the words array (the movies)
-        // it then puts it into a var called pickNumber
-
-       var pickedNumber = Math.floor(Math.random()*words.length);
-        emptyMovie =  words[pickedNumber];
-        //checking my codes
         
+        
+        var lettersGuessed = [];
+        document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed;
+        var pickedNumber = Math.floor(Math.random()*words.length);
+        emptyMovie =  words[pickedNumber];
         console.log(emptyMovie);
-
-        //make blank lines for letters
-        // takes the movie and makes _ _ _ blanks so we can guess stuff
-        // made an IF statement to remove spaces between words
-        //
+        
         var seperateLetters = [];
         for(var i=0; i < emptyMovie.length; i++) {
           if(emptyMovie[i] !== " ") {
@@ -109,19 +99,39 @@ startGame = function() {
             seperateLetters[i] = " ";
         }
        
-        //this puts the _ _ _ _ in a DIV i named "wordBox"
           document.getElementById("wordBox").innerHTML = seperateLetters.join("");
           
         };
-        // made user input lowercase.
         document.onkeyup = function(event) {
+           if(emptyMovie.length == 1) {
+            document.getElementById("changingImage").setAttribute("src", "assets/images/guess_image.png");
+           }
             var letter = String.fromCharCode(event.keyCode).toLowerCase();
-            //takes the letters and pushes into guess letters...
+            guesses--;
+            if(letter.length == 1) {
+                document.getElementById("changingImage").setAttribute("src", "assets/images/guess_image.png");
+               }
+
+            console.log(guesses);
+            document.getElementById("mylives").innerHTML = guesses;
+            
+            if(guesses === 0) {
+                losses++;
+                
+                document.getElementById("lossNumber").innerHTML = losses;
+                alert("you lose");
+                guesses = 12;
+                document.getElementById("mylives").innerHTML = guesses;
+            }
             lettersGuessed.push(letter);
+            
+            
+          
             document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed.join(" ");
            
-            guesses = guesses - 1;
-            //console.log(letter);
+           
+           
+           
 
             for(var j = 0; j < emptyMovie.length; j++) {
                 if(letter == emptyMovie[j]) {
@@ -129,15 +139,18 @@ startGame = function() {
                     seperateLetters[j] = letter;
                    
                     guess.push(letter);
-                 
+                    console.log(letter);
+                   
                     
                     
-                    document.getElementById("mylives").innerHTML = guesses;
                     
-                   // console.log(document.getElementById("wordBox").innerHTML); console.log(emptyMovie) 
+                    //document.getElementById("mylives").innerHTML = guesses;
+                   
                 }  
                 document.getElementById("wordBox").innerHTML = seperateLetters.join("");
                 
+             
+
                if (document.getElementById("wordBox").innerHTML == emptyMovie) {
 
                 document.getElementById("changingImage").setAttribute("src", covers[pickedNumber]);
@@ -145,8 +158,8 @@ startGame = function() {
                     lettersGuessed = [];
                     score = score + 1;
                     guesses = 12;
-                  
-
+                    document.getElementById("mylives").innerHTML = guesses;
+                    document.getElementById("arrayGuessedLetters").innerHTML = lettersGuessed;
                     
                } 
             }
